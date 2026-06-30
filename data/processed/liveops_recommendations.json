@@ -1,0 +1,25 @@
+{
+  "summary": "Gate 40 shows negative lift (-0.82%). Do not deploy.",
+  "deployment_decision": "DO NOT DEPLOY",
+  "rationale": [
+    "Overall lift: -0.82% (p=0.0016)",
+    "Negative lift observed"
+  ],
+  "target_segments": [],
+  "avoid_segments": [],
+  "overall_assessment": {
+    "outcome": "retention_7",
+    "absolute_lift": -0.008201,
+    "p_value": 0.001554,
+    "statistically_significant": true,
+    "practically_significant": false,
+    "ci_lower": -0.013282,
+    "ci_upper": -0.003121
+  },
+  "recommendation_confidence": "Low",
+  "recommendation_confidence_rationale": [
+    "Moderate statistical evidence (p=0.0016, below alpha=0.05)",
+    "Moderately precise estimate (CI width=0.0102, 1\u20133 pp)",
+    "Negligible effect size (Cohen's h=0.0211, < 0.05)"
+  ]
+}

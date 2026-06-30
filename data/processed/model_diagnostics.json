@@ -1,0 +1,41 @@
+{
+  "description": "Phase 3: Ensemble evaluation, residual statistics, data split info",
+  "train_size": 72151,
+  "test_size": 18038,
+  "best_model": "Ridge",
+  "ensemble_evaluation": {
+    "Ridge": {
+      "r2_score": 0.9999999999999971,
+      "rmse": 2.721682889759946e-06,
+      "mae": 1.2850924062587533e-06,
+      "mape_pct": 23586.580231162938
+    },
+    "RandomForest": {
+      "r2_score": 0.9998367741506425,
+      "rmse": 0.6504471030663308,
+      "mae": 0.09801408285453117,
+      "mape_pct": 4310601490.507015
+    },
+    "LightGBM": {
+      "r2_score": 0.8801613711051224,
+      "rmse": 17.624464526576734,
+      "mae": 0.6212380675311919,
+      "mape_pct": 334466266.06134015
+    }
+  },
+  "forecast_statistics": {
+    "n_players": 90189,
+    "mean_predicted_sessions_7day": 25.936228371290678,
+    "std_predicted_sessions_7day": 97.52488229719086,
+    "min_predicted_sessions_7day": -5.376084853526401e-07,
+    "max_predicted_sessions_7day": 24926.998364856605
+  },
+  "target_statistics": {
+    "target_name": "cumulative_sessions_7day",
+    "target_definition": "Proxy: sessions_per_day \u00c3\u2014 7 (observed engagement rate scaled to 7-day window)",
+    "mean_actual": 25.9362283648782,
+    "std_actual": 97.52488809697968,
+    "min_actual": 0.0,
+    "max_actual": 24927.0
+  }
+}

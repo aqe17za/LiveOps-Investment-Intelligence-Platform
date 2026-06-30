@@ -1,0 +1,185 @@
+{
+  "feature_profiles": {
+    "userid": {
+      "dtype": "int64",
+      "source": "raw",
+      "count": 90189,
+      "missing": 0,
+      "min": 116.0,
+      "max": 9999861.0,
+      "mean": 4998412.234496446,
+      "std": 2883285.607700426,
+      "skewness": -0.0012902067161747886,
+      "kurtosis": -1.1967400817026619,
+      "cardinality": null
+    },
+    "sum_gamerounds": {
+      "dtype": "int64",
+      "source": "raw",
+      "count": 90189,
+      "missing": 0,
+      "min": 0.0,
+      "max": 49854.0,
+      "mean": 51.8724567297564,
+      "std": 195.05085754200744,
+      "skewness": 185.43322870033228,
+      "kurtosis": 47127.75673790374,
+      "cardinality": null
+    },
+    "retention_1": {
+      "dtype": "int64",
+      "source": "raw",
+      "count": 90189,
+      "missing": 0,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.4452095044850259,
+      "std": 0.49699169037582575,
+      "skewness": 0.22048980026135262,
+      "kurtosis": -1.9513842479807084,
+      "cardinality": null
+    },
+    "retention_7": {
+      "dtype": "int64",
+      "source": "raw",
+      "count": 90189,
+      "missing": 0,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.1860648194347426,
+      "std": 0.3891611255183245,
+      "skewness": 1.6134032945404408,
+      "kurtosis": 0.603070190833948,
+      "cardinality": null
+    },
+    "version": {
+      "dtype": "object",
+      "source": "raw",
+      "count": 90189,
+      "missing": 0,
+      "min": null,
+      "max": null,
+      "mean": null,
+      "std": null,
+      "skewness": null,
+      "kurtosis": null,
+      "cardinality": 2,
+      "most_common": "gate_40",
+      "value_counts": {
+        "gate_40": 45489,
+        "gate_30": 44700
+      }
+    },
+    "sessions_per_day": {
+      "dtype": "float64",
+      "source": "engineered",
+      "count": 90189,
+      "missing": 0,
+      "min": 0.0,
+      "max": 3561.0,
+      "mean": 3.7051754806968855,
+      "std": 13.932204110143388,
+      "skewness": 185.43322870033236,
+      "kurtosis": 47127.75673790374,
+      "cardinality": null
+    },
+    "session_frequency_bin": {
+      "dtype": "int64",
+      "source": "engineered",
+      "count": 90189,
+      "missing": 0,
+      "min": 0.0,
+      "max": 4.0,
+      "mean": null,
+      "std": null,
+      "skewness": null,
+      "kurtosis": null,
+      "cardinality": 5,
+      "value_counts": {
+        "1": 19547,
+        "0": 18096,
+        "3": 18014,
+        "4": 17942,
+        "2": 16590
+      }
+    },
+    "progression_proxy": {
+      "dtype": "float64",
+      "source": "engineered",
+      "count": 90189,
+      "missing": 0,
+      "min": 0.0,
+      "max": 23.98085998448323,
+      "mean": 5.474398266307194,
+      "std": 4.725459729971946,
+      "skewness": 1.0883163908415967,
+      "kurtosis": 0.39598486546223866,
+      "cardinality": null
+    },
+    "engagement_score": {
+      "dtype": "float64",
+      "source": "engineered",
+      "count": 90189,
+      "missing": 0,
+      "min": 0.0,
+      "max": 0.970637685510743,
+      "mean": 0.12472023561099489,
+      "std": 0.16659914028394654,
+      "skewness": 1.5410253407584502,
+      "kurtosis": 0.683898433024158,
+      "cardinality": null
+    },
+    "lifecycle_stage": {
+      "dtype": "object",
+      "source": "engineered",
+      "count": 90189,
+      "missing": 0,
+      "min": null,
+      "max": null,
+      "mean": null,
+      "std": null,
+      "skewness": null,
+      "kurtosis": null,
+      "cardinality": 5,
+      "most_common": "At-Risk",
+      "value_counts": {
+        "At-Risk": 69443,
+        "Onboarding": 12933,
+        "Dormant": 3994,
+        "Variable": 3818,
+        "Active": 1
+      }
+    }
+  },
+  "data_quality": {
+    "total_rows": 90189,
+    "total_columns": 10,
+    "duplicate_rows": 0,
+    "rows_with_any_nan": 0,
+    "total_cells_with_nan": 0,
+    "data_quality_score": 1.0,
+    "assessment": "PASS"
+  },
+  "lifecycle_distribution": {
+    "Active": {
+      "count": 1,
+      "percentage": 0.0011087826675093414
+    },
+    "At-Risk": {
+      "count": 69443,
+      "percentage": 76.9971947798512
+    },
+    "Dormant": {
+      "count": 3994,
+      "percentage": 4.42847797403231
+    },
+    "Onboarding": {
+      "count": 12933,
+      "percentage": 14.339886238898314
+    },
+    "Variable": {
+      "count": 3818,
+      "percentage": 4.233332224550666
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "description": "Business impact measured in player retention (no revenue estimation)",
+  "total_players": 90189,
+  "primary_outcome": "retention_7",
+  "overall_impact": {
+    "absolute_lift": -0.008201,
+    "expected_retained_players": -739.64,
+    "campaign_efficiency_per_1000": -8.201
+  },
+  "segment_impact": [
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "50-60%",
+      "n_players": 9018,
+      "absolute_lift": 0.247969,
+      "expected_retained_players": 2236.18,
+      "priority_score": 1.3698
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "At-Risk",
+      "n_players": 69443,
+      "absolute_lift": 0.0,
+      "expected_retained_players": 0.0,
+      "priority_score": 0.331
+    },
+    {
+      "dimension": "Risk Group",
+      "segment": "Medium Churn Risk",
+      "n_players": 55944,
+      "absolute_lift": -0.004318,
+      "expected_retained_players": -241.57,
+      "priority_score": 0.2861
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "At-Risk Retention",
+      "n_players": 50456,
+      "absolute_lift": 0.0,
+      "expected_retained_players": 0.0,
+      "priority_score": 0.2678
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "20-30%",
+      "n_players": 8972,
+      "absolute_lift": 0.026768,
+      "expected_retained_players": 240.16,
+      "priority_score": 0.2637
+    },
+    {
+      "dimension": "Risk Group",
+      "segment": "High Churn Risk",
+      "n_players": 16197,
+      "absolute_lift": 0.002016,
+      "expected_retained_players": 32.65,
+      "priority_score": 0.164
+    },
+    {
+      "dimension": "Risk Group",
+      "segment": "Low Churn Risk",
+      "n_players": 18048,
+      "absolute_lift": -0.013572,
+      "expected_retained_players": -244.95,
+      "priority_score": 0.16
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "40-50%",
+      "n_players": 9023,
+      "absolute_lift": 0.005625,
+      "expected_retained_players": 50.75,
+      "priority_score": 0.1581
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "High Priority Reactivation",
+      "n_players": 16059,
+      "absolute_lift": -0.000931,
+      "expected_retained_players": -14.95,
+      "priority_score": 0.1534
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "10-20%",
+      "n_players": 9096,
+      "absolute_lift": 0.003659,
+      "expected_retained_players": 33.28,
+      "priority_score": 0.1486
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "Onboarding",
+      "n_players": 12933,
+      "absolute_lift": 0.0,
+      "expected_retained_players": 0.0,
+      "priority_score": 0.143
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "Onboarding Nurture",
+      "n_players": 12933,
+      "absolute_lift": 0.0,
+      "expected_retained_players": 0.0,
+      "priority_score": 0.143
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "Monitor and Observe",
+      "n_players": 10740,
+      "absolute_lift": -0.020008,
+      "expected_retained_players": -214.89,
+      "priority_score": 0.1357
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "70-80%",
+      "n_players": 10048,
+      "absolute_lift": 0.0,
+      "expected_retained_players": 0.0,
+      "priority_score": 0.1334
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "Bottom 10%",
+      "n_players": 9041,
+      "absolute_lift": -0.00143,
+      "expected_retained_players": -12.93,
+      "priority_score": 0.1301
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "60-70%",
+      "n_players": 9029,
+      "absolute_lift": 0.0,
+      "expected_retained_players": 0.0,
+      "priority_score": 0.13
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "30-40%",
+      "n_players": 8970,
+      "absolute_lift": -0.007699,
+      "expected_retained_players": -69.06,
+      "priority_score": 0.1298
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "80-90%",
+      "n_players": 8708,
+      "absolute_lift": 0.0,
+      "expected_retained_players": 0.0,
+      "priority_score": 0.129
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "Top 10%",
+      "n_players": 8284,
+      "absolute_lift": -0.350271,
+      "expected_retained_players": -2901.64,
+      "priority_score": 0.1276
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "Dormant",
+      "n_players": 3994,
+      "absolute_lift": -0.00194,
+      "expected_retained_players": -7.75,
+      "priority_score": 0.1133
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "Variable",
+      "n_players": 3818,
+      "absolute_lift": 0.0,
+      "expected_retained_players": 0.0,
+      "priority_score": 0.1127
+    }
+  ]
+}

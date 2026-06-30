@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-06-30T05:35:31.438120+00:00",
+  "total_players": 90189,
+  "checks_performed": [
+    {
+      "check": "treatment_labels",
+      "passed": true
+    },
+    {
+      "check": "sample_size",
+      "passed": true,
+      "n_control": 44700,
+      "n_treatment": 45489
+    },
+    {
+      "check": "treatment_balance",
+      "passed": true,
+      "imbalance_ratio": 1.0177
+    },
+    {
+      "check": "missing_data",
+      "passed": true,
+      "columns_checked": [
+        "version",
+        "retention_1",
+        "retention_7",
+        "userid"
+      ]
+    },
+    {
+      "check": "duplicate_users",
+      "passed": true
+    },
+    {
+      "check": "covariate_balance",
+      "passed": true,
+      "balance_results": [
+        {
+          "covariate": "engagement_score",
+          "smd": 0.0203,
+          "balanced": true
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "critical_failures": []
+}

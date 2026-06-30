@@ -1,0 +1,193 @@
+{
+  "manifest_version": "2.0.0",
+  "phase": 2,
+  "versions": {
+    "pipeline": "1.0.0",
+    "schema": "1.0.0",
+    "artifact_contract": "1.0.0"
+  },
+  "generated_by": "survival_analysis.py",
+  "execution_timestamp": "2026-06-30T17:31:34.467724+00:00",
+  "artifacts": [
+    {
+      "name": "feature_store_parquet",
+      "path": "data/processed/feature_store.parquet",
+      "type": "parquet",
+      "size_bytes": 1739965,
+      "sha256": "2c8b38316b45458e82de2750207d175850ef2b63be4a05b09b83c9fa91766eaa",
+      "rows": 90189,
+      "columns": 10,
+      "purpose": "Canonical feature table for Phase 2"
+    },
+    {
+      "name": "data_profile_json",
+      "path": "data/processed/data_profile.json",
+      "type": "json",
+      "size_bytes": 4480,
+      "sha256": "f4800ef6384dd5d3037974f5cc0a2fa7b86b794efab6d326272c43f283f63013",
+      "purpose": "Feature statistics and data quality profiling"
+    },
+    {
+      "name": "feature_dictionary_md",
+      "path": "docs/feature_dictionary.md",
+      "type": "markdown",
+      "size_bytes": 2707,
+      "sha256": "e881e05ce1bb90dfb21631364a033a0920c503731386248af21cc2b089000e58",
+      "purpose": "Static feature documentation"
+    },
+    {
+      "name": "lifecycle_stages_csv",
+      "path": "data/processed/lifecycle_stages.csv",
+      "type": "csv",
+      "size_bytes": 189,
+      "sha256": "ecdfddd1f3f7c5d9acef2ec96ad583324ac59d9cdb655bc438cfad87fb94ee2d",
+      "purpose": "Lifecycle stage distribution (canonical order)"
+    },
+    {
+      "name": "survival_curves_parquet",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\survival_curves.parquet",
+      "type": "parquet",
+      "size_bytes": 4938,
+      "sha256": "7542bc3d1180a625176d6d789a4e834de7c8be5d8a0c1ea56a9b827fd4b6df8b",
+      "rows": 14,
+      "columns": 7,
+      "purpose": "Phase 2: KM survival curves stratified by lifecycle"
+    },
+    {
+      "name": "cox_model_summary_json",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\cox_model_summary.json",
+      "type": "json",
+      "size_bytes": 1115,
+      "sha256": "602e684395c442cb4599431d7f7d839a4f706cb3ee9372bb26f5aeda81dafb4f",
+      "purpose": "Phase 2: Cox PH coefficients, hazard ratios, statistics"
+    },
+    {
+      "name": "survival_diagnostics_json",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\survival_diagnostics.json",
+      "type": "json",
+      "size_bytes": 4077,
+      "sha256": "62a29abd6dd48d57fd62049328f445d4f329617e5a31c36b630e5690e4002736",
+      "purpose": "Phase 2: PH assumption, concordance, log-rank tests"
+    },
+    {
+      "name": "survival_predictions_parquet",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\survival_predictions.parquet",
+      "type": "parquet",
+      "size_bytes": 1198203,
+      "sha256": "c9313573016b23e3e19a20092dba57f75268689e7deaecc5b8787e0460bdde6c",
+      "rows": 90189,
+      "columns": 9,
+      "purpose": "Phase 2: Individual survival probabilities and risk groups"
+    },
+    {
+      "name": "survival_curves_parquet",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\survival_curves.parquet",
+      "type": "parquet",
+      "size_bytes": 4938,
+      "sha256": "7542bc3d1180a625176d6d789a4e834de7c8be5d8a0c1ea56a9b827fd4b6df8b",
+      "rows": 14,
+      "columns": 7,
+      "purpose": "Phase 2: KM survival curves stratified by lifecycle"
+    },
+    {
+      "name": "cox_model_summary_json",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\cox_model_summary.json",
+      "type": "json",
+      "size_bytes": 1115,
+      "sha256": "2acd067fd9a7e14d1c801f4eaa7ec77cd05ea9a0b75a229a1a0e6bd1f09649ed",
+      "purpose": "Phase 2: Cox PH coefficients, hazard ratios, statistics"
+    },
+    {
+      "name": "survival_diagnostics_json",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\survival_diagnostics.json",
+      "type": "json",
+      "size_bytes": 4077,
+      "sha256": "24074b55be54bb5fcf69c599630a1a0b1e82d5c9edbbfc942957f98ecd96af61",
+      "purpose": "Phase 2: PH assumption, concordance, log-rank tests"
+    },
+    {
+      "name": "survival_predictions_parquet",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\survival_predictions.parquet",
+      "type": "parquet",
+      "size_bytes": 1198203,
+      "sha256": "c9313573016b23e3e19a20092dba57f75268689e7deaecc5b8787e0460bdde6c",
+      "rows": 90189,
+      "columns": 9,
+      "purpose": "Phase 2: Individual survival probabilities and risk groups"
+    },
+    {
+      "name": "survival_curves_parquet",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\survival_curves.parquet",
+      "type": "parquet",
+      "size_bytes": 4938,
+      "sha256": "7542bc3d1180a625176d6d789a4e834de7c8be5d8a0c1ea56a9b827fd4b6df8b",
+      "rows": 14,
+      "columns": 7,
+      "purpose": "Phase 2: KM survival curves stratified by lifecycle"
+    },
+    {
+      "name": "cox_model_summary_json",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\cox_model_summary.json",
+      "type": "json",
+      "size_bytes": 1115,
+      "sha256": "257511cc06acc70aeeccc19dab690b9a218f12d2ca8c7dd3a9be6020eb74b919",
+      "purpose": "Phase 2: Cox PH coefficients, hazard ratios, statistics"
+    },
+    {
+      "name": "survival_diagnostics_json",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\survival_diagnostics.json",
+      "type": "json",
+      "size_bytes": 4077,
+      "sha256": "9ec6d7eeb3cbaaaf50b3555a2f42950d5f7495851f0bde4cdd22547bc0a1767e",
+      "purpose": "Phase 2: PH assumption, concordance, log-rank tests"
+    },
+    {
+      "name": "survival_predictions_parquet",
+      "phase": 2,
+      "path": "D:\\Projects\\EA LiveOps Investment Intelligence Platform\\liveops-investment-intelligence\\data\\processed\\survival_predictions.parquet",
+      "type": "parquet",
+      "size_bytes": 1198203,
+      "sha256": "c9313573016b23e3e19a20092dba57f75268689e7deaecc5b8787e0460bdde6c",
+      "rows": 90189,
+      "columns": 9,
+      "purpose": "Phase 2: Individual survival probabilities and risk groups"
+    }
+  ],
+  "configuration_integrity": {
+    "simulation_config_sha256": "bcbb6fb05035aa8efef8ed0b57ab44c1fb28e239a4b2696aae812a388970f74b",
+    "industry_benchmarks_sha256": "5e89e159c89fe59690162eb61fd2c7fcaecf2bfe0e54d38bc827076d2cbba673"
+  },
+  "phase_2_summary": {
+    "status": "SUCCESS",
+    "total_players": 90189,
+    "n_events": 77007,
+    "n_censored": 13182,
+    "n_covariates": 3,
+    "duration_values": [
+      1,
+      3,
+      7
+    ],
+    "event_rate": 0.8538402687689186,
+    "median_followup_days": 7.0,
+    "median_survival_days": 1,
+    "cox_concordance": 0.8606236248070271,
+    "ph_assumption_violated": true,
+    "violated_covariates": [
+      "sessions_per_day",
+      "session_frequency_bin",
+      "version_gate_40"
+    ]
+  }
+}

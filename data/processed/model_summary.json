@@ -1,0 +1,89 @@
+{
+  "description": "Phase 3: Player Retention Intelligence Engine \u2014 model performance and SHAP",
+  "best_model": "Ridge",
+  "selection_criterion": "Maximum test R\u00b2",
+  "ridge": {
+    "model_type": "Ridge",
+    "rationale": "Linear baseline \u2014 interpretable lower bound for ensemble comparison",
+    "alpha": 1.0,
+    "cv_folds": 5,
+    "cv_r2_mean": 0.999999999999952,
+    "cv_r2_std": 8.993924876819959e-14,
+    "cv_r2_scores": [
+      0.9999999999999968,
+      0.9999999999999969,
+      0.999999999999997,
+      0.9999999999997721,
+      0.999999999999997
+    ],
+    "coefficients": {
+      "sessions_per_day": 6.99999953959248,
+      "session_frequency_bin": 2.6662745399981096e-06,
+      "version_gate_40": -3.8174663502631446e-08,
+      "partial_hazard": 1.922363008899399e-06
+    },
+    "intercept": -6.297317362680133e-06
+  },
+  "random_forest": {
+    "model_type": "RandomForest",
+    "rationale": "Non-linear model capturing session dynamics and feature interactions",
+    "n_estimators": 100,
+    "max_depth": 8,
+    "min_samples_split": 5,
+    "random_state": 42,
+    "cv_folds": 5,
+    "cv_r2_mean": -0.07465251340527415,
+    "cv_r2_std": 1.7541531337269283,
+    "cv_r2_scores": [
+      -3.5206299286448006,
+      0.9995127583968669,
+      0.9985058233381691,
+      0.14937741441102725,
+      0.999971365472367
+    ],
+    "feature_importance": {
+      "sessions_per_day": 0.8636309637795749,
+      "session_frequency_bin": 0.0005104844305068977,
+      "version_gate_40": 3.928526213879558e-08,
+      "partial_hazard": 0.13585851250465603
+    }
+  },
+  "lightgbm": {
+    "model_type": "LightGBM",
+    "rationale": "Gradient boosting \u2014 superior for ordinal features and low-cardinality categoricals",
+    "n_estimators": 100,
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "num_leaves": 31,
+    "random_state": 42,
+    "cv_folds": 5,
+    "cv_r2_mean": 0.6998711395244783,
+    "cv_r2_std": 0.302415977486559,
+    "cv_r2_scores": [
+      0.7498365996079177,
+      0.760276645691794,
+      0.8969090676861274,
+      0.11893274849890223,
+      0.9734006361376502
+    ],
+    "feature_importance": {
+      "sessions_per_day": 1666,
+      "session_frequency_bin": 0,
+      "version_gate_40": 80,
+      "partial_hazard": 247
+    }
+  },
+  "shap_analysis": {
+    "model_name": "Ridge",
+    "feature_importance_shap": {
+      "sessions_per_day": 29.181197286849233,
+      "session_frequency_bin": 2.1386454991810246e-06,
+      "version_gate_40": 0.0,
+      "partial_hazard": 0.0
+    },
+    "base_value": 28.004999906805278,
+    "n_samples_explained": 1000,
+    "explainer_type": "KernelExplainer",
+    "interpretation": "Mean absolute SHAP value per feature. Higher = more influential in driving 7-day cumulative session predictions."
+  }
+}

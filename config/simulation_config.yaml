@@ -1,0 +1,631 @@
+# ============================================================================
+# Player Investment Intelligence Platform
+# Simulation Configuration
+# ============================================================================
+#
+# IMPORTANT: Values marked as ASSUMPTION are educated estimates.
+# Values marked as OBSERVED are from real data or published benchmarks.
+# Do not present assumptions as industry truths.
+
+# ============================================================================
+# PROJECT METADATA
+# ============================================================================
+
+project:
+  pipeline_version: "1.0.0"         # Phase 1 pipeline code version
+  artifact_contract_version: "1.0.0" # Artifact format compatibility version
+  schema_version: "1.0.0"            # Individual artifact schema version
+
+# ============================================================================
+# SIMULATION
+# ============================================================================
+
+simulation:
+  # Master random seed for reproducibility
+  # Component-specific seeds may be derived from this master seed if needed,
+  # but reproducibility must be preserved across all runs
+  random_seed: 42
+
+  # Default Monte Carlo runs
+  # May be overridden explicitly by later phases if documented
+  monte_carlo_runs: 1000
+
+# ============================================================================
+# OPTIMIZATION
+# ============================================================================
+
+optimization:
+  # Risk aversion parameter λ for Expected Utility
+  # EU = E[X] - λ * Var[X]
+  # 0.1 = aggressive (maximize expected value)
+  # 0.5 = neutral (balance return vs variance)
+  # 2.0 = conservative (penalize variance heavily)
+  risk_aversion: 0.5
+
+# ============================================================================
+# PERSONAS: Distribution & Inference
+# ============================================================================
+
+personas:
+  # ASSUMPTION: Initial calibration targets for player segments
+  # Based on GameAnalytics 2023 (range: 3-8% whales, 12-18% dolphins, etc.)
+  # Actual % emerges from engagement_score percentile inference
+  distribution:
+    whale: 0.05        # top 5th percentile engagement
+    dolphin: 0.15      # 85th-95th percentile
+    minnow: 0.20       # 65th-85th percentile
+    non_spender: 0.60  # bottom 65th percentile
+
+  # Probabilistic inference: engagement percentile → persona likelihood
+  # Higher percentile → higher P(Whale), but not guaranteed
+  inference_probabilities:
+    top_5_percent:
+      whale: 0.70
+      dolphin: 0.20
+      minnow: 0.08
+      non_spender: 0.02
+    percentile_85_95:
+      whale: 0.15
+      dolphin: 0.55
+      minnow: 0.22
+      non_spender: 0.08
+    percentile_65_85:
+      whale: 0.02
+      dolphin: 0.18
+      minnow: 0.55
+      non_spender: 0.25
+    bottom_65_percent:
+      whale: 0.01
+      dolphin: 0.05
+      minnow: 0.14
+      non_spender: 0.80
+
+# ============================================================================
+# OFFERS: Cost & Acceptance
+# ============================================================================
+
+offers:
+  gem_bundle:
+    cost: 2.99
+    acceptance_distribution:
+      whale:
+        alpha: 8
+        beta: 12        # Beta(8,12) → mean ~40%
+      dolphin:
+        alpha: 3
+        beta: 15        # Beta(3,15) → mean ~17%
+      minnow:
+        alpha: 1.5
+        beta: 20        # Beta(1.5,20) → mean ~7%
+      non_spender:
+        alpha: 0.5
+        beta: 20        # Beta(0.5,20) → mean ~2%
+
+  xp_boost:
+    cost: 1.99
+    acceptance_distribution:
+      whale:
+        alpha: 6
+        beta: 14
+      dolphin:
+        alpha: 4
+        beta: 16
+      minnow:
+        alpha: 2
+        beta: 22
+      non_spender:
+        alpha: 0.3
+        beta: 20
+
+  exclusive_skin:
+    cost: 4.99
+    acceptance_distribution:
+      whale:
+        alpha: 10
+        beta: 10        # Beta(10,10) → mean ~50%
+      dolphin:
+        alpha: 2
+        beta: 18
+      minnow:
+        alpha: 1
+        beta: 25
+      non_spender:
+        alpha: 0.2
+        beta: 20
+
+  discount:
+    cost: 0.99
+    acceptance_distribution:
+      whale:
+        alpha: 5
+        beta: 15
+      dolphin:
+        alpha: 5
+        beta: 15
+      minnow:
+        alpha: 3
+        beta: 17
+      non_spender:
+        alpha: 2
+        beta: 18
+
+# ============================================================================
+# MONETIZATION: Purchase Behavior
+# ============================================================================
+
+purchase_behavior:
+  frequency:
+    whale:
+      lambda: 3.5      # ASSUMPTION: ~3-4 purchases/month (Sensor Tower Q4 2023)
+    dolphin:
+      lambda: 1.3      # ASSUMPTION: ~1-2 purchases/month
+    minnow:
+      lambda: 0.25     # ASSUMPTION: ~1 purchase/quarter
+    non_spender:
+      lambda: 0.0      # 0 purchases
+
+  transaction_value:
+    whale:
+      mu: 3.8          # ASSUMPTION: LogNormal(3.8, 0.6) → mean ~$45-65
+      sigma: 0.6       # Calibrated to GameAnalytics + Sensor Tower benchmarks
+    dolphin:
+      mu: 2.3          # LogNormal(2.3, 0.5) → mean ~$10-20
+      sigma: 0.5
+    minnow:
+      mu: 1.1          # LogNormal(1.1, 0.4) → mean ~$2-5
+      sigma: 0.4
+    non_spender:
+      mu: 0.0
+      sigma: 0.0
+
+# ============================================================================
+# BUDGET & SCENARIOS
+# ============================================================================
+
+budget:
+  default: 250000      # default LiveOps budget in $
+  scenarios:
+    conservative: 50000
+    balanced: 150000
+    aggressive: 300000
+
+# ============================================================================
+# FEATURE ENGINEERING
+# ============================================================================
+
+features:
+  engagement_score:
+    session_frequency_weight: 0.40
+    retention_7_weight: 0.30
+    progression_proxy_weight: 0.30
+    # ASSUMPTION: Min-max normalization chosen for bounded [0,1] output
+    # Alternative: z_score — would require post-clipping to enforce [0,1]
+    normalization_strategy: "min_max"
+
+# ============================================================================
+# LIFECYCLE STAGES
+# ============================================================================
+
+lifecycle:
+  # Observation window for Cookie Cats dataset
+  # OBSERVED: Standard observation window for this dataset
+  observation_window_days: 14
+
+  # Engagement score thresholds for lifecycle classification
+  # ASSUMPTION: Calibrated against Cookie Cats engagement distribution
+  # These are initial targets — may be recalibrated after Phase 2 analysis
+  active_engagement_threshold: 0.70      # engagement_score >= this → Active
+  onboarding_engagement_threshold: 0.40  # engagement_score >= this → Onboarding candidate
+  at_risk_engagement_threshold: 0.50     # engagement_score < this → At-Risk candidate
+  dormant_sessions_threshold: 0          # sessions_per_day == this → Dormant
+
+  # Ordered classification rules (first match wins)
+  # Structure: stage name, priority, conditions as key-value pairs
+  # IMPORTANT: No executable expressions. All values reference threshold keys above.
+  rules:
+    - stage: "Dormant"
+      priority: 1
+      conditions:
+        sessions_per_day:
+          operator: "=="
+          value_from: "dormant_sessions_threshold"
+
+    - stage: "Active"
+      priority: 2
+      conditions:
+        engagement_score:
+          operator: ">="
+          value_from: "active_engagement_threshold"
+        retention_7:
+          operator: "=="
+          value: 1
+
+    - stage: "Onboarding"
+      priority: 3
+      conditions:
+        engagement_score:
+          operator: ">="
+          value_from: "onboarding_engagement_threshold"
+        retention_1:
+          operator: "=="
+          value: 1
+        engagement_score_upper:
+          operator: "<"
+          value_from: "active_engagement_threshold"
+
+    - stage: "At-Risk"
+      priority: 4
+      conditions:
+        engagement_score:
+          operator: "<"
+          value_from: "at_risk_engagement_threshold"
+        retention_7:
+          operator: "=="
+          value: 0
+
+    - stage: "Variable"
+      priority: 5
+      conditions: "default"
+
+# ============================================================================
+# PHASE 2: SURVIVAL ANALYSIS
+# ============================================================================
+
+phase_2:
+  survival:
+    # Stratification
+    km_stratify_by: lifecycle_stage
+    lifecycle_stage_order:
+      - Dormant
+      - Onboarding
+      - Active
+      - At-Risk
+      - Variable
+
+    # KM & Log-Rank
+    km_log_rank_test: true
+    log_rank_multiple_testing: none  # Options: 'none', 'holm'
+    min_stratum_size: 10
+
+    # Cox Model
+    ph_test_method: schoenfeld_rank_transform
+    ph_significance_level: 0.05
+
+    # Predictions (Day 1 and Day 7 only)
+    prediction_times: [1, 7]
+
+    # Risk Groups
+    risk_group_method: partial_hazard_percentiles
+    risk_group_percentiles: [20, 80]
+    risk_group_names:
+      - "Low Churn Risk"
+      - "Medium Churn Risk"
+      - "High Churn Risk"
+
+    # Validation
+    min_events_per_covariate: 10
+
+# ============================================================================
+# PHASE 3: PLAYER DECISION ENGINE
+# ============================================================================
+#
+# WHY NO ML MODEL?
+# Cookie Cats provides only: retention_1, retention_7, sum_gamerounds, version.
+# The natural target proxy (sessions_per_day × 7) is a linear scaling of a
+# direct predictor — any regression model will learn y = 7x, achieving R²≈1.0
+# trivially. This is identity mapping, not prediction. A senior DS asks:
+# "Why not just multiply by 7?" The answer is: "You're right."
+#
+# What the data DOES support: a decision-support system. Phase 1 produces
+# lifecycle segments. Phase 2 produces risk stratification. Together they
+# define WHO needs what intervention. This is the correct use of the data.
+
+phase_3:
+  player_decision_engine:
+
+    # -------------------------------------------------------------------------
+    # Priority Score: weighted composite for intervention targeting
+    # Higher score = player should be acted on sooner. Range: [0, 100].
+    #
+    # WEIGHT RATIONALE:
+    # These are configurable business priors defined in YAML, not statistically
+    # learned coefficients. In production, these weights would be calibrated
+    # using historical intervention outcomes, A/B test lift results, and
+    # business objectives (e.g., retention-first vs. revenue-first strategy).
+    # Starting values follow an engagement-first philosophy: behavioral signals
+    # outweigh risk signals to reduce false-positive intervention triggers.
+    # Weights must sum to 1.0.
+    # -------------------------------------------------------------------------
+    priority_score_weights:
+      engagement_score: 0.40       # Phase 1 composite (session freq + retention + progression)
+      churn_risk: 0.35             # Phase 2: 1 - survival_prob_day7 (higher = more at-risk)
+      session_intensity: 0.25      # Phase 1: normalized sessions_per_day
+
+    # -------------------------------------------------------------------------
+    # Action Categories: business rules evaluated in strict priority order.
+    #
+    # CONFLICT RESOLUTION (first-match-wins):
+    # Rules are evaluated from priority=1 (highest) to priority=6 (catch-all).
+    # The first rule whose lifecycle_stages AND risk_groups conditions are both
+    # satisfied is assigned to the player. All remaining rules are skipped.
+    # This means a player who matches both Rule 1 and Rule 3 receives Rule 1.
+    # The catch-all (priority=6) guarantees every player is assigned exactly
+    # one category — the pipeline raises DataPreparationError if any remain
+    # unassigned.
+    #
+    # Each category includes:
+    #   intervention          — the LiveOps action to deliver
+    #   objective             — what the intervention is trying to achieve
+    #   primary_kpi           — the main metric to measure success
+    #   secondary_kpi         — supporting measurement
+    #   owner                 — accountable team in production
+    #   expected_business_goal — high-level business outcome
+    #   measurement_kpi       — how retention lift is quantified
+    #   phase4_connection     — how this flows into Phase 4 Uplift Estimation
+    # -------------------------------------------------------------------------
+    action_categories:
+
+      - name: "High Priority Reactivation"
+        priority: 1
+        color_code: "critical"
+        lifecycle_stages: ["Dormant", "At-Risk"]
+        risk_groups: ["High Churn Risk"]
+        intervention: "Emergency reactivation — push notification + exclusive limited-time offer"
+        rationale: "Player has disengaged AND survival model flags imminent churn. Highest urgency."
+        objective: "Prevent churn before player is permanently lost"
+        primary_kpi: "D7 Retention"
+        secondary_kpi: "Sessions resumed within 48 hours"
+        owner: "LiveOps"
+        expected_business_goal: "Increase D7 Retention"
+        measurement_kpi: "Retention lift vs. holdout control group"
+        phase4_connection: "Measure causal treatment effect via Phase 4 Uplift Estimation (T-learner / X-learner on version split)"
+
+      - name: "At-Risk Retention"
+        priority: 2
+        color_code: "high"
+        lifecycle_stages: ["At-Risk"]
+        risk_groups: ["Medium Churn Risk", "High Churn Risk"]
+        intervention: "Retention campaign — personalized reward + daily bonus streak reinstatement"
+        rationale: "Player shows behavioral At-Risk signals; survival risk confirms intervention is needed."
+        objective: "Slow disengagement trajectory before player reaches Dormant"
+        primary_kpi: "D7 Retention"
+        secondary_kpi: "Streak re-engagement rate"
+        owner: "LiveOps"
+        expected_business_goal: "Reduce churn rate in At-Risk cohort"
+        measurement_kpi: "Churn rate reduction vs. control"
+        phase4_connection: "A/B test gate_30 vs gate_40 on retention lift — estimated in Phase 4"
+
+      - name: "Onboarding Nurture"
+        priority: 3
+        color_code: "medium"
+        lifecycle_stages: ["Onboarding"]
+        risk_groups: ["Low Churn Risk", "Medium Churn Risk", "High Churn Risk"]
+        intervention: "Onboarding nudge — tutorial completion bonus + first-week milestone reward"
+        rationale: "New players in acquisition funnel. Investment here maximizes long-run retention."
+        objective: "Convert new players to habitual sessions within first 7 days"
+        primary_kpi: "D1 to D7 Retention conversion"
+        secondary_kpi: "Tutorial completion rate"
+        owner: "Growth"
+        expected_business_goal: "Improve new player D7 retention"
+        measurement_kpi: "D7 retention rate for treated vs. untreated new players"
+        phase4_connection: "Gate placement (version) may moderate onboarding friction — Phase 4 quantifies this"
+
+      - name: "Active Growth"
+        priority: 4
+        color_code: "medium"
+        lifecycle_stages: ["Active"]
+        risk_groups: ["Medium Churn Risk", "High Churn Risk"]
+        intervention: "Growth campaign — social challenge invitation + friend referral bonus"
+        rationale: "Engaged player but showing early risk signals. Deepen investment before churn."
+        objective: "Strengthen engagement depth before early risk signals escalate"
+        primary_kpi: "Sessions per week"
+        secondary_kpi: "Social feature adoption rate"
+        owner: "LiveOps"
+        expected_business_goal: "Increase session frequency in Active-at-risk cohort"
+        measurement_kpi: "Session frequency lift vs. control"
+        phase4_connection: "Uplift of social features on Active players estimated in Phase 4"
+
+      - name: "Loyalty Reward"
+        priority: 5
+        color_code: "low"
+        lifecycle_stages: ["Active"]
+        risk_groups: ["Low Churn Risk"]
+        intervention: "Loyalty program — VIP recognition + exclusive content unlock"
+        rationale: "Healthy, stable player. Reward loyalty to sustain engagement, avoid over-intervention."
+        objective: "Sustain and reward existing healthy engagement — avoid intervention fatigue"
+        primary_kpi: "30-day retention"
+        secondary_kpi: "Session depth (gamerounds per session)"
+        owner: "CRM"
+        expected_business_goal: "Maintain retention in highest-value stable cohort"
+        measurement_kpi: "30-day retention vs. baseline"
+        phase4_connection: "Phase 4 validates whether VIP treatment causally lifts long-run retention"
+
+      - name: "Monitor and Observe"
+        priority: 6
+        color_code: "informational"
+        lifecycle_stages: ["Variable", "Dormant", "Onboarding", "Active", "At-Risk"]
+        risk_groups: ["Low Churn Risk", "Medium Churn Risk", "High Churn Risk"]
+        intervention: "Passive monitoring — standard communications only, no active intervention"
+        rationale: "Catch-all for players not meeting higher-priority criteria. Observe and re-evaluate."
+        objective: "Conserve LiveOps budget — do not intervene without sufficient signal"
+        primary_kpi: "Natural retention rate"
+        secondary_kpi: "Priority score change over time (score drift monitoring)"
+        owner: "Analytics"
+        expected_business_goal: "Baseline measurement for control group"
+        measurement_kpi: "Natural churn rate — serves as control group reference"
+        phase4_connection: "This group forms the natural control baseline for Phase 4 causal estimation"
+
+    # -------------------------------------------------------------------------
+    # Validation
+    # -------------------------------------------------------------------------
+    random_state: 42               # Deterministic reproducibility
+    min_samples: 100               # Minimum player count required to proceed
+
+
+
+# ============================================================================
+# PHASE 4: CAUSAL EXPERIMENTATION & LIVEOPS OPTIMIZATION PLATFORM
+# ============================================================================
+#
+# OBJECTIVE:
+# Measure whether the Gate 40 intervention improved player outcomes vs. Gate 30,
+# for which segments, and generate evidence-based LiveOps deployment decisions.
+#
+# TREATMENT:
+# version ∈ {gate_30, gate_40} is the experimental treatment (gate placement).
+# Cookie Cats dataset represents a completed A/B test — Phase 4 evaluates it.
+#
+# OUTCOMES:
+# Primary: retention_1 (D1 retention), retention_7 (D7 retention)
+# Both are binary outcomes suitable for difference-in-proportions analysis.
+
+phase_4:
+  experiment_evaluation:
+
+    # -------------------------------------------------------------------------
+    # Treatment Definition
+    # -------------------------------------------------------------------------
+    treatment_column: "version"
+    control_group: "gate_30"
+    treatment_group: "gate_40"
+
+    # -------------------------------------------------------------------------
+    # Outcome Metrics
+    # -------------------------------------------------------------------------
+    outcomes:
+      - name: "retention_1"
+        type: "binary"
+        description: "Day 1 Retention (returned after 1 day)"
+        business_goal: "Improve short-term retention"
+        
+      - name: "retention_7"
+        type: "binary"
+        description: "Day 7 Retention (returned after 7 days)"
+        business_goal: "Improve long-term retention"
+
+    # -------------------------------------------------------------------------
+    # Experiment Validation
+    # -------------------------------------------------------------------------
+    validation:
+      min_sample_size: 100                    # Per treatment arm
+      max_sample_imbalance_ratio: 3.0         # max(n_treatment, n_control) / min <= 3.0
+      max_missing_rate: 0.05                  # <= 5% missing in critical columns
+      duplicate_check: true
+      
+      # Randomization checks
+      covariate_balance_check: true
+      covariate_balance_columns:
+        - "sessions_per_day"
+        - "engagement_score"
+        - "lifecycle_stage"
+      max_standardized_mean_difference: 0.25  # SMD < 0.25 → balanced
+
+    # -------------------------------------------------------------------------
+    # Statistical Inference
+    # -------------------------------------------------------------------------
+    inference:
+      alpha: 0.05                             # Significance level
+      confidence_level: 0.95                  # 95% confidence intervals
+      
+      # Effect size thresholds (Cohen's h for proportions)
+      effect_size_small: 0.20
+      effect_size_medium: 0.50
+      effect_size_large: 0.80
+      
+      # Multiple testing correction
+      multiple_testing_method: "holm"         # Options: "holm", "benjamini_hochberg", "none"
+      
+      # Minimum effect size for practical significance (absolute)
+      min_meaningful_lift: 0.01               # 1 percentage point
+
+    # -------------------------------------------------------------------------
+    # Segment-Level Analysis
+    # -------------------------------------------------------------------------
+    segmentation:
+      stratify_by:
+        - column: "lifecycle_stage"
+          name: "Lifecycle Stage"
+          
+        - column: "risk_group"
+          name: "Risk Group"
+          
+        - column: "action_category"
+          name: "Phase 3 Recommendation"
+        
+        - column: "priority_score_decile"
+          name: "Priority Score Decile"
+      
+      min_segment_size: 30                    # Minimum players per segment × treatment
+
+    # -------------------------------------------------------------------------
+    # Decision Engine Evaluation
+    # -------------------------------------------------------------------------
+    decision_evaluation:
+      # For each Phase 3 action category, measure:
+      # - Treatment effect within that segment
+      # - Statistical significance
+      # - Practical significance
+      # - Recommendation confidence
+      
+      min_confidence_threshold: 0.80          # Recommendation requires p < 0.20
+      high_confidence_threshold: 0.95         # p < 0.05
+      
+    # -------------------------------------------------------------------------
+    # LiveOps Optimization
+    # -------------------------------------------------------------------------
+    liveops_recommendations:
+      # Decision thresholds for deployment recommendations
+      
+      # Deploy globally if:
+      deploy_threshold:
+        min_absolute_lift: 0.02               # >= 2 percentage points
+        min_statistical_significance: 0.95    # p < 0.05
+        min_positive_segments_pct: 0.60       # >= 60% of segments show positive lift
+      
+      # Target specific segments if:
+      targeted_deployment_threshold:
+        min_absolute_lift: 0.03               # >= 3 percentage points
+        min_statistical_significance: 0.90    # p < 0.10
+        
+      # Do not deploy if:
+      no_deploy_threshold:
+        max_absolute_lift: 0.01               # < 1 percentage point
+        or_negative_lift: true                # OR overall lift is negative
+      
+      # Recommend additional experimentation if:
+      more_data_needed_threshold:
+        min_p_value: 0.10                     # 0.10 <= p <= 0.20 (inconclusive)
+        max_p_value: 0.20
+      
+      # Recommendation confidence thresholds
+      confidence_thresholds:
+        high:
+          max_p_value: 0.01                   # p < 0.01
+          min_ci_width: 0.002                 # CI width <= 0.2pp (tight)
+          min_effect_size: 0.02               # Cohen's h >= 0.02 or |lift| >= 2pp
+        medium:
+          max_p_value: 0.05                   # p < 0.05
+          min_ci_width: 0.01                  # CI width <= 1pp
+          min_effect_size: 0.01               # |lift| >= 1pp
+        # low: anything else
+
+    # -------------------------------------------------------------------------
+    # Business Impact Metrics
+    # -------------------------------------------------------------------------
+    business_impact:
+      # NO revenue estimation — Cookie Cats does not support monetary ROI.
+      # Impact measured in:
+      # - Expected retained players (lift × N)
+      # - Campaign efficiency (lift per 1000 players)
+      # - Segment coverage (% of players in positive-lift segments)
+      # - Priority ranking (which segments to target first)
+      
+      priority_ranking_weights:
+        absolute_lift: 0.50                   # Magnitude of effect
+        segment_size: 0.30                    # Number of affected players
+        statistical_confidence: 0.20          # Strength of evidence
+
+    # -------------------------------------------------------------------------
+    # Reproducibility
+    # -------------------------------------------------------------------------
+    random_state: 42

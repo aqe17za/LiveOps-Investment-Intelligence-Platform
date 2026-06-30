@@ -1,0 +1,101 @@
+{
+  "description": "Evaluate Phase 3 Player Decision Engine recommendations against experiment results",
+  "recommendations": {
+    "At-Risk Retention": {
+      "n_control": 26029,
+      "n_treatment": 24427,
+      "outcomes": {
+        "retention_1": {
+          "absolute_lift": 0.020905,
+          "control_rate": 0.392408,
+          "treatment_rate": 0.413313,
+          "p_value": 0.0,
+          "statistically_significant": true,
+          "lift_direction": "positive",
+          "recommendation_validated": true
+        },
+        "retention_7": {
+          "absolute_lift": 0.0,
+          "control_rate": 0.0,
+          "treatment_rate": 0.0,
+          "p_value": 0.0,
+          "statistically_significant": true,
+          "lift_direction": "neutral",
+          "recommendation_validated": false
+        }
+      }
+    },
+    "Monitor and Observe": {
+      "n_control": 5278,
+      "n_treatment": 5462,
+      "outcomes": {
+        "retention_1": {
+          "absolute_lift": 0.015725,
+          "control_rate": 0.571239,
+          "treatment_rate": 0.586964,
+          "p_value": 0.0,
+          "statistically_significant": true,
+          "lift_direction": "positive",
+          "recommendation_validated": true
+        },
+        "retention_7": {
+          "absolute_lift": -0.020008,
+          "control_rate": 0.365669,
+          "treatment_rate": 0.345661,
+          "p_value": 0.0,
+          "statistically_significant": true,
+          "lift_direction": "negative",
+          "recommendation_validated": false
+        }
+      }
+    },
+    "High Priority Reactivation": {
+      "n_control": 6837,
+      "n_treatment": 9222,
+      "outcomes": {
+        "retention_1": {
+          "absolute_lift": 0.011038,
+          "control_rate": 0.036566,
+          "treatment_rate": 0.047604,
+          "p_value": 0.0,
+          "statistically_significant": true,
+          "lift_direction": "positive",
+          "recommendation_validated": true
+        },
+        "retention_7": {
+          "absolute_lift": -0.000931,
+          "control_rate": 0.00234,
+          "treatment_rate": 0.00141,
+          "p_value": 0.0,
+          "statistically_significant": true,
+          "lift_direction": "negative",
+          "recommendation_validated": false
+        }
+      }
+    },
+    "Onboarding Nurture": {
+      "n_control": 6555,
+      "n_treatment": 6378,
+      "outcomes": {
+        "retention_1": {
+          "absolute_lift": 0.0,
+          "control_rate": 1.0,
+          "treatment_rate": 1.0,
+          "p_value": 0.0,
+          "statistically_significant": true,
+          "lift_direction": "neutral",
+          "recommendation_validated": false
+        },
+        "retention_7": {
+          "absolute_lift": 0.0,
+          "control_rate": 1.0,
+          "treatment_rate": 1.0,
+          "p_value": 0.0,
+          "statistically_significant": true,
+          "lift_direction": "neutral",
+          "recommendation_validated": false
+        }
+      }
+    }
+  }
+}

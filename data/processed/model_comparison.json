@@ -1,0 +1,49 @@
+{
+  "description": "Phase 3: Side-by-side comparison of Ridge vs Random Forest vs LightGBM",
+  "best_model": "Ridge",
+  "selection_criterion": "Maximum test R\u00b2",
+  "all_metrics": {
+    "Ridge": {
+      "r2_score": 0.9999999999999971,
+      "rmse": 2.721682889759946e-06,
+      "mae": 1.2850924062587533e-06,
+      "mape_pct": 23586.580231162938
+    },
+    "RandomForest": {
+      "r2_score": 0.9998367741506425,
+      "rmse": 0.6504471030663308,
+      "mae": 0.09801408285453117,
+      "mape_pct": 4310601490.507015
+    },
+    "LightGBM": {
+      "r2_score": 0.8801613711051224,
+      "rmse": 17.624464526576734,
+      "mae": 0.6212380675311919,
+      "mape_pct": 334466266.06134015
+    }
+  },
+  "r2_scores": {
+    "Ridge": 0.9999999999999971,
+    "RandomForest": 0.9998367741506425,
+    "LightGBM": 0.8801613711051224
+  },
+  "cv_r2_scores": {
+    "Ridge": {
+      "mean": 0.999999999999952,
+      "std": 8.993924876819959e-14
+    },
+    "RandomForest": {
+      "mean": -0.07465251340527415,
+      "std": 1.7541531337269283
+    },
+    "LightGBM": {
+      "mean": 0.6998711395244783,
+      "std": 0.302415977486559
+    }
+  },
+  "model_justifications": {
+    "Ridge": "Linear baseline \u2014 interpretable lower bound for ensemble comparison",
+    "RandomForest": "Non-linear model capturing session dynamics and feature interactions",
+    "LightGBM": "Gradient boosting \u2014 superior for ordinal features and low-cardinality categoricals"
+  }
+}

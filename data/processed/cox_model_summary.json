@@ -1,0 +1,40 @@
+{
+  "model_version": "1.0.0",
+  "execution_timestamp": "2026-06-30T17:31:34.467724+00:00",
+  "covariates": [
+    "sessions_per_day",
+    "session_frequency_bin",
+    "version_gate_40"
+  ],
+  "coefficients": {
+    "sessions_per_day": -0.08217791572319699,
+    "session_frequency_bin": -0.4030503781607285,
+    "version_gate_40": 0.009963326953007709
+  },
+  "hazard_ratios": {
+    "sessions_per_day": {
+      "hr": 0.9211080645096648,
+      "ci_95_lower": 0.9182942074496476,
+      "ci_95_upper": 0.923930543851615,
+      "p_value": 0.0
+    },
+    "session_frequency_bin": {
+      "hr": 0.668278431837264,
+      "ci_95_lower": 0.6628993990981263,
+      "ci_95_upper": 0.6737011122147131,
+      "p_value": 0.0
+    },
+    "version_gate_40": {
+      "hr": 1.0100131261461323,
+      "ci_95_lower": 0.9958424954845537,
+      "ci_95_upper": 1.0243854019215288,
+      "p_value": 0.16695440677839746
+    }
+  },
+  "model_statistics": {
+    "concordance_index": 0.8606236248070271,
+    "log_likelihood": -803441.8753644282,
+    "aic": 1606889.7507288563,
+    "degrees_of_freedom": 3
+  }
+}

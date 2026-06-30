@@ -1,0 +1,156 @@
+{
+  "description": "Audit trail of Phase 3 Player Decision Engine rule assignments. Each rule entry shows coverage, priority score distribution, and conditions.",
+  "total_players": 90189,
+  "rules_evaluated": 6,
+  "rules_audit": [
+    {
+      "rule_name": "High Priority Reactivation",
+      "priority": 1,
+      "conditions": {
+        "lifecycle_stages": [
+          "Dormant",
+          "At-Risk"
+        ],
+        "risk_groups": [
+          "High Churn Risk"
+        ]
+      },
+      "n_players_matched": 16059,
+      "pct_of_total": 17.81,
+      "priority_score_distribution": {
+        "mean": 34.5935,
+        "std": 0.5767,
+        "min": 34.1824,
+        "p25": 34.5224,
+        "p50": 34.5531,
+        "p75": 34.745,
+        "max": 46.5756
+      }
+    },
+    {
+      "rule_name": "At-Risk Retention",
+      "priority": 2,
+      "conditions": {
+        "lifecycle_stages": [
+          "At-Risk"
+        ],
+        "risk_groups": [
+          "Medium Churn Risk",
+          "High Churn Risk"
+        ]
+      },
+      "n_players_matched": 62521,
+      "pct_of_total": 69.32,
+      "priority_score_distribution": {
+        "mean": 29.4818,
+        "std": 3.962,
+        "min": 20.8722,
+        "p25": 24.9766,
+        "p50": 30.3267,
+        "p75": 32.9497,
+        "max": 35.5589
+      }
+    },
+    {
+      "rule_name": "Onboarding Nurture",
+      "priority": 3,
+      "conditions": {
+        "lifecycle_stages": [
+          "Onboarding"
+        ],
+        "risk_groups": [
+          "Low Churn Risk",
+          "Medium Churn Risk",
+          "High Churn Risk"
+        ]
+      },
+      "n_players_matched": 12933,
+      "pct_of_total": 14.34,
+      "priority_score_distribution": {
+        "mean": 31.0964,
+        "std": 5.4862,
+        "min": 23.496,
+        "p25": 26.8603,
+        "p50": 30.255,
+        "p75": 32.7836,
+        "max": 44.3369
+      }
+    },
+    {
+      "rule_name": "Active Growth",
+      "priority": 4,
+      "conditions": {
+        "lifecycle_stages": [
+          "Active"
+        ],
+        "risk_groups": [
+          "Medium Churn Risk",
+          "High Churn Risk"
+        ]
+      },
+      "n_players_matched": 0,
+      "pct_of_total": 0.0,
+      "priority_score_distribution": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "rule_name": "Loyalty Reward",
+      "priority": 5,
+      "conditions": {
+        "lifecycle_stages": [
+          "Active"
+        ],
+        "risk_groups": [
+          "Low Churn Risk"
+        ]
+      },
+      "n_players_matched": 1,
+      "pct_of_total": 0.0,
+      "priority_score_distribution": {
+        "mean": 65.0,
+        "std": 0.0,
+        "min": 65.0,
+        "p25": 65.0,
+        "p50": 65.0,
+        "p75": 65.0,
+        "max": 65.0
+      }
+    },
+    {
+      "rule_name": "Monitor and Observe",
+      "priority": 6,
+      "conditions": {
+        "lifecycle_stages": [
+          "Variable",
+          "Dormant",
+          "Onboarding",
+          "Active",
+          "At-Risk"
+        ],
+        "risk_groups": [
+          "Low Churn Risk",
+          "Medium Churn Risk",
+          "High Churn Risk"
+        ]
+      },
+      "n_players_matched": 90189,
+      "pct_of_total": 100.0,
+      "priority_score_distribution": {
+        "mean": 23.1314,
+        "std": 11.176,
+        "min": 4.3564,
+        "p25": 15.5829,
+        "p50": 17.6429,
+        "p75": 30.3331,
+        "max": 48.6683
+      }
+    }
+  ]
+}

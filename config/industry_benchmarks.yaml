@@ -1,0 +1,130 @@
+# ============================================================================
+# Industry Benchmarks for Simulation Validation
+# ============================================================================
+#
+# OBSERVED: Data from published industry reports
+# Source citations included for every benchmark
+#
+# These benchmarks are VALIDATION TARGETS, not optimization targets.
+# The simulation is calibrated against them, not forced to match exactly.
+# If simulated distributions deviate beyond specified tolerances,
+# the pipeline will flag warnings or fail with detailed diagnostics.
+
+# ============================================================================
+# ARPU & ARPPU
+# ============================================================================
+
+arpu:
+  monthly:
+    min: 1.80
+    max: 2.10
+    source: "GameAnalytics 2023 Annual Benchmark"
+
+arppu:
+  whale:
+    min: 45
+    max: 65
+    source: "Sensor Tower Mobile Gaming Report Q4 2023"
+  dolphin:
+    min: 10
+    max: 20
+    source: "Sensor Tower Mobile Gaming Report Q4 2023"
+  minnow:
+    min: 2
+    max: 5
+    source: "Data.ai State of Mobile 2024"
+
+# ============================================================================
+# PERSONA PERCENTAGES
+# ============================================================================
+
+personas:
+  whale:
+    min: 0.03
+    max: 0.08
+    source: "GameAnalytics 2023 + Sensor Tower 2023"
+  dolphin:
+    min: 0.12
+    max: 0.18
+    source: "GameAnalytics 2023"
+  minnow:
+    min: 0.18
+    max: 0.25
+    source: "Data.ai 2024"
+
+# ============================================================================
+# RETENTION
+# ============================================================================
+
+retention:
+  day_1:
+    min: 0.40
+    max: 0.50
+    source: "GameAnalytics 2023 Annual Benchmark"
+
+  day_7:
+    min: 0.18
+    max: 0.22
+    source: "GameAnalytics 2023 Annual Benchmark"
+    note: "Real Cookie Cats data should match this range"
+
+# ============================================================================
+# REVENUE CONCENTRATION
+# ============================================================================
+
+revenue:
+  top_20_percent_of_players:
+    value: 0.78
+    tolerance: 0.03
+    sources:
+      - "GameAnalytics 2023"
+      - "Sensor Tower 2023"
+      - "Data.ai 2024"
+
+# ============================================================================
+# OFFER ACCEPTANCE RATES
+# ============================================================================
+
+offer_acceptance:
+  gem_bundle:
+    whale: [0.35, 0.45]
+    dolphin: [0.15, 0.25]
+    minnow: [0.05, 0.10]
+    source: "Sensor Tower 2023 + Unity Gaming Report 2023"
+
+  xp_boost:
+    whale: [0.25, 0.35]
+    dolphin: [0.18, 0.25]
+    minnow: [0.08, 0.15]
+    source: "GameAnalytics 2023"
+
+  exclusive_skin:
+    whale: [0.40, 0.55]
+    dolphin: [0.08, 0.15]
+    minnow: [0.03, 0.08]
+    source: "Sensor Tower 2023"
+
+  discount:
+    whale: [0.20, 0.30]
+    dolphin: [0.20, 0.30]
+    minnow: [0.12, 0.20]
+    source: "Unity Gaming Report 2023"
+
+# ============================================================================
+# VALIDATION TOLERANCES
+# ============================================================================
+
+validation:
+  warning_thresholds:
+    arpu_deviation: 0.15
+    arppu_deviation: 0.12
+    persona_percentage_deviation: 0.03
+    revenue_concentration_deviation: 0.03
+    retention_match_deviation: 0.02
+
+  failure_thresholds:
+    arpu_deviation: 0.25
+    arppu_deviation: 0.20
+    persona_percentage_deviation: 0.05
+    revenue_concentration_deviation: 0.08
+    retention_match_deviation: 0.05

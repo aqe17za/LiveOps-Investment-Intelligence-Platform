@@ -1,0 +1,574 @@
+{
+  "segmentation_dimensions": [
+    {
+      "dimension_name": "Lifecycle Stage",
+      "column": "lifecycle_stage",
+      "segments": {
+        "At-Risk": {
+          "n_control": 34277,
+          "n_treatment": 35166,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.38854,
+              "treatment_rate": 0.385913,
+              "absolute_lift": -0.002628,
+              "relative_lift": -0.006763,
+              "ci_lower": -0.009874,
+              "ci_upper": 0.004619,
+              "n_control": 34277,
+              "n_treatment": 35166
+            },
+            "retention_7": {
+              "control_rate": 0.0,
+              "treatment_rate": 0.0,
+              "absolute_lift": 0.0,
+              "relative_lift": null,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 34277,
+              "n_treatment": 35166
+            }
+          }
+        },
+        "Onboarding": {
+          "n_control": 6555,
+          "n_treatment": 6378,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 1.0,
+              "treatment_rate": 1.0,
+              "absolute_lift": 0.0,
+              "relative_lift": 0.0,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 6555,
+              "n_treatment": 6378
+            },
+            "retention_7": {
+              "control_rate": 1.0,
+              "treatment_rate": 1.0,
+              "absolute_lift": 0.0,
+              "relative_lift": 0.0,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 6555,
+              "n_treatment": 6378
+            }
+          }
+        },
+        "Dormant": {
+          "n_control": 1937,
+          "n_treatment": 2057,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.021167,
+              "treatment_rate": 0.022363,
+              "absolute_lift": 0.001196,
+              "relative_lift": 0.0565,
+              "ci_lower": -0.007855,
+              "ci_upper": 0.010247,
+              "n_control": 1937,
+              "n_treatment": 2057
+            },
+            "retention_7": {
+              "control_rate": 0.00826,
+              "treatment_rate": 0.00632,
+              "absolute_lift": -0.00194,
+              "relative_lift": -0.234899,
+              "ci_lower": -0.007229,
+              "ci_upper": 0.003349,
+              "n_control": 1937,
+              "n_treatment": 2057
+            }
+          }
+        },
+        "Variable": {
+          "n_control": 1930,
+          "n_treatment": 1888,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.062176,
+              "treatment_rate": 0.065678,
+              "absolute_lift": 0.003502,
+              "relative_lift": 0.056321,
+              "ci_lower": -0.01202,
+              "ci_upper": 0.019023,
+              "n_control": 1930,
+              "n_treatment": 1888
+            },
+            "retention_7": {
+              "control_rate": 1.0,
+              "treatment_rate": 1.0,
+              "absolute_lift": 0.0,
+              "relative_lift": 0.0,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 1930,
+              "n_treatment": 1888
+            }
+          }
+        }
+      }
+    },
+    {
+      "dimension_name": "Risk Group",
+      "column": "risk_group",
+      "segments": {
+        "Medium Churn Risk": {
+          "n_control": 28927,
+          "n_treatment": 27017,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.413316,
+              "treatment_rate": 0.430914,
+              "absolute_lift": 0.017598,
+              "relative_lift": 0.042577,
+              "ci_lower": 0.009408,
+              "ci_upper": 0.025787,
+              "n_control": 28927,
+              "n_treatment": 27017
+            },
+            "retention_7": {
+              "control_rate": 0.100183,
+              "treatment_rate": 0.095866,
+              "absolute_lift": -0.004318,
+              "relative_lift": -0.043098,
+              "ci_lower": -0.009247,
+              "ci_upper": 0.000611,
+              "n_control": 28927,
+              "n_treatment": 27017
+            }
+          }
+        },
+        "Low Churn Risk": {
+          "n_control": 8889,
+          "n_treatment": 9159,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.879739,
+              "treatment_rate": 0.875096,
+              "absolute_lift": -0.004643,
+              "relative_lift": -0.005278,
+              "ci_lower": -0.014212,
+              "ci_upper": 0.004926,
+              "n_control": 8889,
+              "n_treatment": 9159
+            },
+            "retention_7": {
+              "control_rate": 0.623355,
+              "treatment_rate": 0.609783,
+              "absolute_lift": -0.013572,
+              "relative_lift": -0.021772,
+              "ci_lower": -0.027759,
+              "ci_upper": 0.000615,
+              "n_control": 8889,
+              "n_treatment": 9159
+            }
+          }
+        },
+        "High Churn Risk": {
+          "n_control": 6884,
+          "n_treatment": 9313,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.037478,
+              "treatment_rate": 0.049608,
+              "absolute_lift": 0.01213,
+              "relative_lift": 0.323651,
+              "ci_lower": 0.005839,
+              "ci_upper": 0.018421,
+              "n_control": 6884,
+              "n_treatment": 9313
+            },
+            "retention_7": {
+              "control_rate": 0.009152,
+              "treatment_rate": 0.011167,
+              "absolute_lift": 0.002016,
+              "relative_lift": 0.220237,
+              "ci_lower": -0.001085,
+              "ci_upper": 0.005116,
+              "n_control": 6884,
+              "n_treatment": 9313
+            }
+          }
+        }
+      }
+    },
+    {
+      "dimension_name": "Phase 3 Recommendation",
+      "column": "action_category",
+      "segments": {
+        "At-Risk Retention": {
+          "n_control": 26029,
+          "n_treatment": 24427,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.392408,
+              "treatment_rate": 0.413313,
+              "absolute_lift": 0.020905,
+              "relative_lift": 0.053273,
+              "ci_lower": 0.012342,
+              "ci_upper": 0.029467,
+              "n_control": 26029,
+              "n_treatment": 24427
+            },
+            "retention_7": {
+              "control_rate": 0.0,
+              "treatment_rate": 0.0,
+              "absolute_lift": 0.0,
+              "relative_lift": null,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 26029,
+              "n_treatment": 24427
+            }
+          }
+        },
+        "Monitor and Observe": {
+          "n_control": 5278,
+          "n_treatment": 5462,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.571239,
+              "treatment_rate": 0.586964,
+              "absolute_lift": 0.015725,
+              "relative_lift": 0.027529,
+              "ci_lower": -0.00295,
+              "ci_upper": 0.034401,
+              "n_control": 5278,
+              "n_treatment": 5462
+            },
+            "retention_7": {
+              "control_rate": 0.365669,
+              "treatment_rate": 0.345661,
+              "absolute_lift": -0.020008,
+              "relative_lift": -0.054716,
+              "ci_lower": -0.038116,
+              "ci_upper": -0.0019,
+              "n_control": 5278,
+              "n_treatment": 5462
+            }
+          }
+        },
+        "High Priority Reactivation": {
+          "n_control": 6837,
+          "n_treatment": 9222,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.036566,
+              "treatment_rate": 0.047604,
+              "absolute_lift": 0.011038,
+              "relative_lift": 0.301862,
+              "ci_lower": 0.004819,
+              "ci_upper": 0.017257,
+              "n_control": 6837,
+              "n_treatment": 9222
+            },
+            "retention_7": {
+              "control_rate": 0.00234,
+              "treatment_rate": 0.00141,
+              "absolute_lift": -0.000931,
+              "relative_lift": -0.397629,
+              "ci_lower": -0.002308,
+              "ci_upper": 0.000447,
+              "n_control": 6837,
+              "n_treatment": 9222
+            }
+          }
+        },
+        "Onboarding Nurture": {
+          "n_control": 6555,
+          "n_treatment": 6378,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 1.0,
+              "treatment_rate": 1.0,
+              "absolute_lift": 0.0,
+              "relative_lift": 0.0,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 6555,
+              "n_treatment": 6378
+            },
+            "retention_7": {
+              "control_rate": 1.0,
+              "treatment_rate": 1.0,
+              "absolute_lift": 0.0,
+              "relative_lift": 0.0,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 6555,
+              "n_treatment": 6378
+            }
+          }
+        }
+      }
+    },
+    {
+      "dimension_name": "Priority Score Decile",
+      "column": "priority_score_decile",
+      "segments": {
+        "80-90%": {
+          "n_control": 3785,
+          "n_treatment": 4923,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.0,
+              "treatment_rate": 0.0,
+              "absolute_lift": 0.0,
+              "relative_lift": null,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 3785,
+              "n_treatment": 4923
+            },
+            "retention_7": {
+              "control_rate": 0.0,
+              "treatment_rate": 0.0,
+              "absolute_lift": 0.0,
+              "relative_lift": null,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 3785,
+              "n_treatment": 4923
+            }
+          }
+        },
+        "20-30%": {
+          "n_control": 4648,
+          "n_treatment": 4324,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.843804,
+              "treatment_rate": 0.941258,
+              "absolute_lift": 0.097454,
+              "relative_lift": 0.115494,
+              "ci_lower": 0.084883,
+              "ci_upper": 0.110026,
+              "n_control": 4648,
+              "n_treatment": 4324
+            },
+            "retention_7": {
+              "control_rate": 0.415878,
+              "treatment_rate": 0.442646,
+              "absolute_lift": 0.026768,
+              "relative_lift": 0.064365,
+              "ci_lower": 0.006275,
+              "ci_upper": 0.047261,
+              "n_control": 4648,
+              "n_treatment": 4324
+            }
+          }
+        },
+        "Bottom 10%": {
+          "n_control": 4462,
+          "n_treatment": 4579,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.637606,
+              "treatment_rate": 0.673073,
+              "absolute_lift": 0.035466,
+              "relative_lift": 0.055624,
+              "ci_lower": 0.015882,
+              "ci_upper": 0.05505,
+              "n_control": 4462,
+              "n_treatment": 4579
+            },
+            "retention_7": {
+              "control_rate": 0.013223,
+              "treatment_rate": 0.011793,
+              "absolute_lift": -0.00143,
+              "relative_lift": -0.108132,
+              "ci_lower": -0.006013,
+              "ci_upper": 0.003154,
+              "n_control": 4462,
+              "n_treatment": 4579
+            }
+          }
+        },
+        "30-40%": {
+          "n_control": 4149,
+          "n_treatment": 4821,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.074235,
+              "treatment_rate": 0.065547,
+              "absolute_lift": -0.008688,
+              "relative_lift": -0.117037,
+              "ci_lower": -0.019292,
+              "ci_upper": 0.001915,
+              "n_control": 4149,
+              "n_treatment": 4821
+            },
+            "retention_7": {
+              "control_rate": 0.087973,
+              "treatment_rate": 0.080274,
+              "absolute_lift": -0.007699,
+              "relative_lift": -0.087518,
+              "ci_lower": -0.019237,
+              "ci_upper": 0.003838,
+              "n_control": 4149,
+              "n_treatment": 4821
+            }
+          }
+        },
+        "70-80%": {
+          "n_control": 6168,
+          "n_treatment": 3880,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.266051,
+              "treatment_rate": 0.484021,
+              "absolute_lift": 0.21797,
+              "relative_lift": 0.81928,
+              "ci_lower": 0.198764,
+              "ci_upper": 0.237176,
+              "n_control": 6168,
+              "n_treatment": 3880
+            },
+            "retention_7": {
+              "control_rate": 0.0,
+              "treatment_rate": 0.0,
+              "absolute_lift": 0.0,
+              "relative_lift": null,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 6168,
+              "n_treatment": 3880
+            }
+          }
+        },
+        "50-60%": {
+          "n_control": 6182,
+          "n_treatment": 2836,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.197024,
+              "treatment_rate": 0.444993,
+              "absolute_lift": 0.247969,
+              "relative_lift": 1.258577,
+              "ci_lower": 0.227164,
+              "ci_upper": 0.268774,
+              "n_control": 6182,
+              "n_treatment": 2836
+            },
+            "retention_7": {
+              "control_rate": 0.197024,
+              "treatment_rate": 0.444993,
+              "absolute_lift": 0.247969,
+              "relative_lift": 1.258577,
+              "ci_lower": 0.227164,
+              "ci_upper": 0.268774,
+              "n_control": 6182,
+              "n_treatment": 2836
+            }
+          }
+        },
+        "Top 10%": {
+          "n_control": 3348,
+          "n_treatment": 4936,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.636798,
+              "treatment_rate": 0.398298,
+              "absolute_lift": -0.2385,
+              "relative_lift": -0.37453,
+              "ci_lower": -0.259758,
+              "ci_upper": -0.217242,
+              "n_control": 3348,
+              "n_treatment": 4936
+            },
+            "retention_7": {
+              "control_rate": 0.896057,
+              "treatment_rate": 0.545786,
+              "absolute_lift": -0.350271,
+              "relative_lift": -0.390903,
+              "ci_lower": -0.367586,
+              "ci_upper": -0.332957,
+              "n_control": 3348,
+              "n_treatment": 4936
+            }
+          }
+        },
+        "10-20%": {
+          "n_control": 4639,
+          "n_treatment": 4457,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.760724,
+              "treatment_rate": 0.717747,
+              "absolute_lift": -0.042977,
+              "relative_lift": -0.056495,
+              "ci_lower": -0.061014,
+              "ci_upper": -0.02494,
+              "n_control": 4639,
+              "n_treatment": 4457
+            },
+            "retention_7": {
+              "control_rate": 0.161026,
+              "treatment_rate": 0.164685,
+              "absolute_lift": 0.003659,
+              "relative_lift": 0.022721,
+              "ci_lower": -0.011521,
+              "ci_upper": 0.018839,
+              "n_control": 4639,
+              "n_treatment": 4457
+            }
+          }
+        },
+        "40-50%": {
+          "n_control": 4458,
+          "n_treatment": 4565,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.95581,
+              "treatment_rate": 0.952026,
+              "absolute_lift": -0.003783,
+              "relative_lift": -0.003958,
+              "ci_lower": -0.012434,
+              "ci_upper": 0.004867,
+              "n_control": 4458,
+              "n_treatment": 4565
+            },
+            "retention_7": {
+              "control_rate": 0.264693,
+              "treatment_rate": 0.270318,
+              "absolute_lift": 0.005625,
+              "relative_lift": 0.021251,
+              "ci_lower": -0.012642,
+              "ci_upper": 0.023892,
+              "n_control": 4458,
+              "n_treatment": 4565
+            }
+          }
+        },
+        "60-70%": {
+          "n_control": 2861,
+          "n_treatment": 6168,
+          "outcomes": {
+            "retention_1": {
+              "control_rate": 0.062216,
+              "treatment_rate": 0.0,
+              "absolute_lift": -0.062216,
+              "relative_lift": -1.0,
+              "ci_lower": -0.071067,
+              "ci_upper": -0.053365,
+              "n_control": 2861,
+              "n_treatment": 6168
+            },
+            "retention_7": {
+              "control_rate": 0.0,
+              "treatment_rate": 0.0,
+              "absolute_lift": 0.0,
+              "relative_lift": null,
+              "ci_lower": 0.0,
+              "ci_upper": 0.0,
+              "n_control": 2861,
+              "n_treatment": 6168
+            }
+          }
+        }
+      }
+    }
+  ]
+}

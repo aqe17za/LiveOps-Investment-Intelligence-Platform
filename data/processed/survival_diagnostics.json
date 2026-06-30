@@ -1,0 +1,114 @@
+{
+  "diagnostics_version": "1.0.0",
+  "phase": 2,
+  "execution_timestamp": "2026-06-30T17:31:34.467724+00:00",
+  "kaplan_meier": {
+    "event_rate": 0.8538402687689186,
+    "total_players": 90189,
+    "total_events": 77007,
+    "total_censored": 13182,
+    "median_followup_days": 7.0,
+    "median_survival_days": 1,
+    "survival_at_day_7": 0.1461597312310813
+  },
+  "cox_model": {
+    "convergence": true,
+    "log_likelihood": -803441.8753644282,
+    "aic": 1606889.7507288563,
+    "degrees_of_freedom": 3,
+    "concordance_index": 0.8606236248070271
+  },
+  "proportional_hazards_assumption": {
+    "test_name": "Schoenfeld Residuals (Rank Transform)",
+    "global_violation": true,
+    "violated_covariates": [
+      "sessions_per_day",
+      "session_frequency_bin",
+      "version_gate_40"
+    ],
+    "covariate_results": {
+      "sessions_per_day": {
+        "test_statistic": 119.35482398385903,
+        "p_value": 8.757575856021117e-28,
+        "violated": true
+      },
+      "session_frequency_bin": {
+        "test_statistic": 1310.1730453859589,
+        "p_value": 6.957975705081832e-287,
+        "violated": true
+      },
+      "version_gate_40": {
+        "test_statistic": 5.2653565696496205,
+        "p_value": 0.021753965897428975,
+        "violated": true
+      }
+    }
+  },
+  "stratified_km_logrank_tests": {
+    "test_name": "Log-Rank Test (Stratification: Lifecycle Stage)",
+    "multiple_testing": "none",
+    "pairwise_results": {
+      "dormant_vs_onboarding": {
+        "raw_p_value": 0.0,
+        "corrected_p_value": null,
+        "correction_method": "none",
+        "note": "Raw p-values reported. No multiple comparison correction applied."
+      },
+      "dormant_vs_active": {
+        "raw_p_value": 0.8813921534611915,
+        "corrected_p_value": null,
+        "correction_method": "none",
+        "note": "Raw p-values reported. No multiple comparison correction applied."
+      },
+      "dormant_vs_at_risk": {
+        "raw_p_value": 0.0,
+        "corrected_p_value": null,
+        "correction_method": "none",
+        "note": "Raw p-values reported. No multiple comparison correction applied."
+      },
+      "dormant_vs_variable": {
+        "raw_p_value": 1.8119585333012732e-50,
+        "corrected_p_value": null,
+        "correction_method": "none",
+        "note": "Raw p-values reported. No multiple comparison correction applied."
+      },
+      "onboarding_vs_active": {
+        "raw_p_value": 0.0,
+        "corrected_p_value": null,
+        "correction_method": "none",
+        "note": "Raw p-values reported. No multiple comparison correction applied."
+      },
+      "onboarding_vs_at_risk": {
+        "raw_p_value": 0.0,
+        "corrected_p_value": null,
+        "correction_method": "none",
+        "note": "Raw p-values reported. No multiple comparison correction applied."
+      },
+      "onboarding_vs_variable": {
+        "raw_p_value": 0.0,
+        "corrected_p_value": null,
+        "correction_method": "none",
+        "note": "Raw p-values reported. No multiple comparison correction applied."
+      },
+      "active_vs_at_risk": {
+        "raw_p_value": 0.42667217347444664,
+        "corrected_p_value": null,
+        "correction_method": "none",
+        "note": "Raw p-values reported. No multiple comparison correction applied."
+      },
+      "active_vs_variable": {
+        "raw_p_value": 0.7938994479556505,
+        "corrected_p_value": null,
+        "correction_method": "none",
+        "note": "Raw p-values reported. No multiple comparison correction applied."
+      },
+      "at_risk_vs_variable": {
+        "raw_p_value": 1.8569664186692616e-223,
+        "corrected_p_value": null,
+        "correction_method": "none",
+        "note": "Raw p-values reported. No multiple comparison correction applied."
+      }
+    }
+  },
+  "prediction_note": "predicted_median_survival is NaN where S(t) does not reach 0.5 within observation window [0, 7]. These players are predicted retained beyond day 7."
+}

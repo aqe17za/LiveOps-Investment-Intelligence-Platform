@@ -1,0 +1,35 @@
+{
+  "estimand": "Average Treatment Effect (ATE)",
+  "estimand_note": "The ATE is estimated under the assumption of successful randomization. Because version was randomly assigned, the estimate has a causal interpretation: the expected retention difference if all players received gate_40 vs gate_30.",
+  "treatment_column": "version",
+  "control_group": "gate_30",
+  "treatment_group": "gate_40",
+  "n_control": 44700,
+  "n_treatment": 45489,
+  "ci_method": "normal_approximation",
+  "ci_method_note": "Normal approximation for difference in proportions. Appropriate at n>90,000. Future versions may use bootstrap CIs for robustness in smaller subgroup analyses.",
+  "outcomes": {
+    "retention_1": {
+      "description": "Day 1 Retention (returned after 1 day)",
+      "control_rate": 0.448188,
+      "treatment_rate": 0.442283,
+      "absolute_lift": -0.005905,
+      "relative_lift": -0.013176,
+      "ci_lower": -0.012392,
+      "ci_upper": 0.000582,
+      "standard_error": 0.00331,
+      "cohens_h": -0.0119
+    },
+    "retention_7": {
+      "description": "Day 7 Retention (returned after 7 days)",
+      "control_rate": 0.190201,
+      "treatment_rate": 0.182,
+      "absolute_lift": -0.008201,
+      "relative_lift": -0.043119,
+      "ci_lower": -0.013282,
+      "ci_upper": -0.003121,
+      "standard_error": 0.002592,
+      "cohens_h": -0.0211
+    }
+  }
+}

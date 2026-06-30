@@ -1,0 +1,360 @@
+{
+  "alpha": 0.05,
+  "multiple_testing_method": "holm",
+  "overall_tests": {
+    "retention_1": {
+      "chi2_statistic": 3.182964,
+      "chi2_p_value": 0.07441,
+      "chi2_valid": true,
+      "fisher_p_value": 0.074707,
+      "recommended_test": "chi2",
+      "p_value": 0.07441
+    },
+    "retention_7": {
+      "chi2_statistic": 10.013167,
+      "chi2_p_value": 0.001554,
+      "chi2_valid": true,
+      "fisher_p_value": 0.001591,
+      "recommended_test": "chi2",
+      "p_value": 0.001554
+    }
+  },
+  "segment_tests": [
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "At-Risk",
+      "outcome": "retention_1",
+      "p_value": 0.477229,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "At-Risk",
+      "outcome": "retention_7",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "Onboarding",
+      "outcome": "retention_1",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "Onboarding",
+      "outcome": "retention_7",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "Dormant",
+      "outcome": "retention_1",
+      "p_value": 0.795817,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "Dormant",
+      "outcome": "retention_7",
+      "p_value": 0.470397,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "Variable",
+      "outcome": "retention_1",
+      "p_value": 0.658272,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Lifecycle Stage",
+      "segment": "Variable",
+      "outcome": "retention_7",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Risk Group",
+      "segment": "Medium Churn Risk",
+      "outcome": "retention_1",
+      "p_value": 2.5e-05,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Risk Group",
+      "segment": "Medium Churn Risk",
+      "outcome": "retention_7",
+      "p_value": 0.086224,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Risk Group",
+      "segment": "Low Churn Risk",
+      "outcome": "retention_1",
+      "p_value": 0.341685,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Risk Group",
+      "segment": "Low Churn Risk",
+      "outcome": "retention_7",
+      "p_value": 0.060839,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Risk Group",
+      "segment": "High Churn Risk",
+      "outcome": "retention_1",
+      "p_value": 0.000213,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Risk Group",
+      "segment": "High Churn Risk",
+      "outcome": "retention_7",
+      "p_value": 0.209371,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "At-Risk Retention",
+      "outcome": "retention_1",
+      "p_value": 2e-06,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "At-Risk Retention",
+      "outcome": "retention_7",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "Monitor and Observe",
+      "outcome": "retention_1",
+      "p_value": 0.098882,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "Monitor and Observe",
+      "outcome": "retention_7",
+      "p_value": 0.030341,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "High Priority Reactivation",
+      "outcome": "retention_1",
+      "p_value": 0.000642,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "High Priority Reactivation",
+      "outcome": "retention_7",
+      "p_value": 0.169653,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "Onboarding Nurture",
+      "outcome": "retention_1",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Phase 3 Recommendation",
+      "segment": "Onboarding Nurture",
+      "outcome": "retention_7",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "80-90%",
+      "outcome": "retention_1",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "80-90%",
+      "outcome": "retention_7",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "20-30%",
+      "outcome": "retention_1",
+      "p_value": 0.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "20-30%",
+      "outcome": "retention_7",
+      "p_value": 0.01047,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "Bottom 10%",
+      "outcome": "retention_1",
+      "p_value": 0.000388,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "Bottom 10%",
+      "outcome": "retention_7",
+      "p_value": 0.540662,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "30-40%",
+      "outcome": "retention_1",
+      "p_value": 0.106825,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "30-40%",
+      "outcome": "retention_7",
+      "p_value": 0.189565,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "70-80%",
+      "outcome": "retention_1",
+      "p_value": 0.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "70-80%",
+      "outcome": "retention_7",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "50-60%",
+      "outcome": "retention_1",
+      "p_value": 0.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "50-60%",
+      "outcome": "retention_7",
+      "p_value": 0.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "Top 10%",
+      "outcome": "retention_1",
+      "p_value": 0.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "Top 10%",
+      "outcome": "retention_7",
+      "p_value": 0.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "10-20%",
+      "outcome": "retention_1",
+      "p_value": 3e-06,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "10-20%",
+      "outcome": "retention_7",
+      "p_value": 0.636594,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "40-50%",
+      "outcome": "retention_1",
+      "p_value": 0.391548,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "40-50%",
+      "outcome": "retention_7",
+      "p_value": 0.546203,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "60-70%",
+      "outcome": "retention_1",
+      "p_value": 0.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    },
+    {
+      "dimension": "Priority Score Decile",
+      "segment": "60-70%",
+      "outcome": "retention_7",
+      "p_value": 1.0,
+      "p_value_corrected": 0.0,
+      "significant": true
+    }
+  ]
+}
